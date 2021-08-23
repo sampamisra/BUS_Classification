@@ -30,12 +30,13 @@ import pandas as pd
 from torch.optim.lr_scheduler import StepLR
 from sklearn.metrics import roc_curve, auc
 import matplotlib.pyplot as pl
-data_dir1 = "./BW_aligned_BW" #B-mode images Directory
-data_dir2 = "./Strain_aligned" #Strain images Directory
+data_dir1 = "./BW" #B-mode images Directory
+data_dir2 = "./Strain" #Strain images Directory
 test_dir1=data_dir1 + '/Test'
 test_dir2=data_dir2 + '/Test'
 num_classes = 2
 batch_size =64
+##...............For ResNet18 Model.......................##
 # model = nn.Sequential(
 # nn.Conv2d(in_channels=4,out_channels=3,kernel_size=(1,1)),
 # models.resnet18(pretrained=True))
@@ -43,6 +44,7 @@ batch_size =64
 # model[1].fc = nn.Linear(num_ftrs, 2)
 # #print(model[1].layer3[0].conv2.weight)
 # model.load_state_dict(torch.load('Model/checkpoint_resnet_3.pt'))
+##...............For Alexnet Model.......................##
 model = nn.Sequential(
 nn.Conv2d(in_channels=4,out_channels=3,kernel_size=(1,1)),
 models.alexnet(pretrained=True))
