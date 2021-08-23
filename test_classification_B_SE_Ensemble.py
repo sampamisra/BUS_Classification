@@ -33,8 +33,8 @@ import matplotlib.pyplot as pl
 from torchsummary import summary
 #print("PyTorch Version: ",torch.__version__)
 #print("Torchvision Version: ",torchvision.__version__)
-data_dir1 = "./BW_aligned_BW"
-data_dir2 = "./Strain_aligned"
+data_dir1 = "./BW"
+data_dir2 = "./Strain"
 test_dir1=data_dir1 + '/Test'
 test_dir2=data_dir2 + '/Test'
 num_classes = 2
