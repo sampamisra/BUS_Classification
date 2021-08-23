@@ -58,22 +58,22 @@ class MyEnsemble(nn.Module):
 # Train your separate models
 # ...
 # We use pretrained torchvision models here
-modelB = nn.Sequential(
-nn.Conv2d(in_channels=4,out_channels=3,kernel_size=(1,1)),
-models.alexnet(pretrained=True))
-num_ftrs = modelB[1].classifier[6].in_features
-modelB[1].classifier[6] = nn.Linear(num_ftrs, 2)
 modelA = nn.Sequential(
 nn.Conv2d(in_channels=4,out_channels=3,kernel_size=(1,1)),
 models.resnet18(pretrained=True))
 num_ftrs = modelA[1].fc.in_features
 modelA[1].fc = nn.Linear(num_ftrs, 2)
+modelB = nn.Sequential(
+nn.Conv2d(in_channels=4,out_channels=3,kernel_size=(1,1)),
+models.alexnet(pretrained=True))
+num_ftrs = modelB[1].classifier[6].in_features
+modelB[1].classifier[6] = nn.Linear(num_ftrs, 2)
 for param in modelA.parameters():
     param.requires_grad_(False)
 for param in modelB.parameters():
     param.requires_grad_(False)
-modelB.load_state_dict(torch.load('Model\checkpoint_alexnet_3.pt'))
 modelA.load_state_dict(torch.load('Model\checkpoint_resnet_3.pt'))
+modelB.load_state_dict(torch.load('Model\checkpoint_alexnet_3.pt'))
 from early import EarlyStopping
 if __name__ == '__main__':
     def train_model(model, train_loader, valid_loader, criterion, optimizer, num_epochs, patience, i ):
