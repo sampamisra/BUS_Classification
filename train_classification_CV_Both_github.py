@@ -204,7 +204,7 @@ class TrainDataset(Dataset) :
 feature_extract = True
 sm = nn.Softmax(dim = 1)
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-patience = 50
+patience = 200
 criterion = nn.CrossEntropyLoss()
 train_transforms = transforms.Compose([transforms.Resize((224,224)),
                                       transforms.RandomHorizontalFlip(),
