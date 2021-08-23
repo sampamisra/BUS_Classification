@@ -268,18 +268,4 @@ criterion = nn.CrossEntropyLoss()
 result = test(model, criterion)
 #summary(model, (4, 224, 224)) 
 preds, true, soft = result
-images_path = test_loader.dataset.BW
-#print(images_path)
-# # images_path -> [ [images path, label] * 835 ]
 
-with open(f"majority_ensemble.csv", "w") as f:
-    wr = csv.writer(f)
-    wr.writerow(["file", "prob_0", "prob_1",  "pred", "label"])
-    for i in range(len(preds)):
-        f = os.path.basename(images_path[i])
-        #print(f)
-        prob_0 = round(soft[i][0], 6)
-        prob_1 = round(soft[i][1], 6)
-        pred = preds[i]
-        label = true[i]
-        wr.writerow([f, prob_0, prob_1, pred, label])
