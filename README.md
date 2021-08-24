@@ -11,4 +11,6 @@
 
 5. Test the final model using test_classification_Both_Ensemble_Github.py
 
+6. early.py is used for early stopping
+
 
