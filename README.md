@@ -16,6 +16,9 @@
 7. Test the final model using test_classification_B_SE_Ensemble.py
 
 
+crop_and_erase.m is used for cropping B-mode and Strain images from the original images in such a way that they are co-aligned.
+
+
 
 
 
