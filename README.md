@@ -13,4 +13,6 @@
 
 6. early.py is used for early stopping
 
+7. Dataset and models can be downloaded from https://drive.google.com/drive/folders/1cr_AjI7Zlc7NEl7edCQy-y74cr8r-R9I?usp=sharing
+
 
