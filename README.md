@@ -16,6 +16,12 @@
 
 crop_and_erase.m is used for cropping B-mode and Strain images from the original images in such a way that they are co-aligned.
 
+The detailed steps of getting B-mode and SE images  from original images are:
+1.	Compare B-mode and SE US images pixels by pixels and alignment.
+2.	Set the starting point manually (starting point of SE images and B-mode images should be the same).
+3.	Divide the image into 2 images (SE and B-mode). 
+4.	Erase the circle marks from the B-mode and SE images (as these marks have the same RGB values, we can erase these marks). 
+5.	Crop the image from starting point with fixed x and y size (we used 224 x 224). 
 
 
 
