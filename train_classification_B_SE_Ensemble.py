@@ -212,7 +212,7 @@ train_transforms = transforms.Compose([transforms.Resize((224,224)),
                                       transforms.Normalize([0.485, 0.456, 0.406],
                                                            [0.229, 0.224, 0.225])
                                       ])
-merge_data = TrainDataset(data_dir1 + "/data", data_dir2 + "/data", transform=train_transforms)
+merge_data = TrainDataset(data_dir1 + "/Train", data_dir2 + "/Train", transform=train_transforms)
 group_list = merge_data.grouplist()
 fold_counts= 5
 kfold = GroupKFold(n_splits=fold_counts)
